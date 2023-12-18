@@ -1,1 +1,42 @@
-<p>pelicula-list works!</p>
+@if (peliculaList !== null) {
+  <div class="container-fluid">
+    <div class="row d-flex justify-content-center mt-2">
+      <div class="col text-center"><h2>Peliculas</h2></div>
+    </div>
+    <div class="row justify-content-center">
+      @for (pelicula of peliculaList; track $index) {
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{ pelicula.title }}</h5>
+            <a [routerLink]="['/pelicula/show', pelicula.id]" class="card-link">Show</a>
+          </div>
+        </div>
+      </div>
+      }
+    </div>
+    <nav
+      aria-label="Page navigation example"
+      class="d-flex justify-content-center mt-2"
+    >
+      <ul class="pagination">
+        @if (actualPage==minPage) {
+        <li class="page-item disabled">
+          <button class="page-link">Previous</button>
+        </li>
+        }@else {
+        <li class="page-item">
+          <button class="page-link" (click)="decrementNumPage()">Previous</button>
+        </li>
+        } @if(actualPage===maxPage){
+        <li class="page-item disabled"><a class="page-link" href="#">Next</a></li>
+        }@else {
+        <li class="page-item">
+          <button class="page-link" (click)="incrementNumPage()">Next</button>
+        </li>
+        }
+      </ul>
+    </nav>
+  </div>
+  } @else { Procesando la solicitud }
+

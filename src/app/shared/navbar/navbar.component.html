@@ -3,7 +3,7 @@
   data-bs-theme="dark"
 >
   <div class="container-fluid">
-    <a class="navbar-brand" [routerLink]="['home']">PT</a>
+    <a class="navbar-brand" [routerLink]="['/home']">PT</a>
     <button
       class="navbar-toggler"
       type="button"
@@ -20,17 +20,17 @@
         <li class="nav-item">
           <a
             class="nav-link"
-            [routerLink]="['pelicula']"
+            [routerLink]="['/pelicula']"
             routerLinkActive="active"
             ariaCurrentWhenActive="page"
           >
-          Peliculas
+            Peliculas
           </a>
         </li>
         <li class="nav-item">
           <a
             class="nav-link"
-            [routerLink]="['serie']"
+            [routerLink]="['/serie']"
             routerLinkActive="active"
             ariaCurrentWhenActive="page"
           >
@@ -52,7 +52,7 @@
           </a>
           <ul class="dropdown-menu">
             <li>
-              <a class="dropdown-item" routerLink="#"> LogOut </a>
+              <button class="dropdown-item" (click)="logOut()">LogOut</button>
             </li>
           </ul>
         </li>
@@ -60,4 +60,3 @@
     </div>
   </div>
 </nav>
-

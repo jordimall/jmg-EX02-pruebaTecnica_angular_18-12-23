@@ -10,11 +10,10 @@ import { PeliculaShowComponent } from './pelicula/pelicula-show/pelicula-show.co
 import { isloggedGuard } from './guards/islogged.guard';
 
 export const routes: Routes = [
-  { path: '', component: LoginComponent, canActivate: [isloggedGuard] },
+  { path: '', component: LoginComponent },
   {
     path: 'auth/login',
     component: LoginComponent,
-    canActivate: [isloggedGuard],
   },
   { path: 'home', component: HomeComponent, canActivate: [isloggedGuard] },
   {
@@ -22,7 +21,7 @@ export const routes: Routes = [
     component: SerieComponent,
     canActivate: [isloggedGuard],
     children: [
-      { path: 'all', component: SerieListComponent },
+      { path: '', component: SerieListComponent },
       { path: 'show/:id', component: SerieShowComponent },
     ],
   },
@@ -31,7 +30,7 @@ export const routes: Routes = [
     component: PeliculaComponent,
     canActivate: [isloggedGuard],
     children: [
-      { path: 'all', component: PeliculaListComponent },
+      { path: '', component: PeliculaListComponent },
       { path: 'show/:id', component: PeliculaShowComponent },
     ],
   },

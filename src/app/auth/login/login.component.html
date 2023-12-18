@@ -1,9 +1,11 @@
 <div class="container">
   <div class="row h-100vh d-flex justify-content-center align-items-center">
-    <div class="col-6 border border-1 border-black">
+    <div class="col-12 col-sm-8 col-md-6 border border-1 border-black">
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label"
+          <label
+            for="exampleInputEmail1"
+            class="form-label fs-5 fs-md-4 fs-lg-3"
             >Email address</label
           >
           <input
@@ -15,16 +17,20 @@
           />
           @if (loginForm.get('userName')?.hasError('required')&&
           loginForm.get('userName')?.touched) {
-          <span class="text-danger"
+          <span class="text-danger fs-6 fs-md-5 fs-lg-4"
             >Debes de introducir un nombre de usuario</span
           >
           }
-          <div id="userNameHelp" class="form-text">
+          <div id="userNameHelp" class="form-text fs-6 fs-md-5 fs-lg-4">
             El nombre de usuario es user
           </div>
         </div>
         <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <label
+            for="exampleInputPassword1"
+            class="form-label fs-5 fs-md-4 fs-lg-3"
+            >Password</label
+          >
           <input
             type="password"
             class="form-control"
@@ -34,18 +40,22 @@
           />
           @if (loginForm.get('password')?.hasError('required')&&
           loginForm.get('password')?.touched) {
-          <span class="text-danger">Debes de introducir una contraseña</span>
+          <span class="text-danger fs-6 fs-md-5 fs-lg-4"
+            >Debes de introducir una contraseña</span
+          >
           }
-          <div id="userNameHelp" class="form-text">La contraseña es user</div>
+          <div id="userNameHelp" class="form-text fs-6 fs-md-5 fs-lg-4">
+            La contraseña es user
+          </div>
         </div>
         <div class="row mb-3">
-          <div id="errorLogin" class="col error hidden">
+          <div id="errorLogin" class="col error hidden fs-6 fs-md-5 fs-lg-4">
             Error al introducir el nombre de ususario o la contraseña
           </div>
         </div>
         <button
           type="submit"
-          class="btn btn-primary mb-2"
+          class="btn btn-primary mb-2 fs-5 fs-md-4 fs-lg-3"
           [disabled]="!loginForm.valid"
         >
           Submit

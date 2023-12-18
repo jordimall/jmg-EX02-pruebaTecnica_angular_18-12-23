@@ -8,6 +8,7 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { TokenStorageService } from '../../services/token-storage.service';
 import { User } from '../../models/user.model';
 
 @Component({
@@ -18,7 +19,11 @@ import { User } from '../../models/user.model';
   styleUrl: './login.component.css',
 })
 export class LoginComponent {
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private tokenService: TokenStorageService
+  ) {}
   userName: string = '';
   password: string = '';
   user: User | any;
@@ -31,7 +36,10 @@ export class LoginComponent {
     this.user = this.loginForm.value as User;
     let result: boolean = this.authService.loggin(this.user);
     if (result) {
+      this.tokenService.saveToken();
       this.router.navigateByUrl('/home');
-    } else {document.getElementById("errorLogin")?.classList.remove("hidden");}
+    } else {
+      document.getElementById('errorLogin')?.classList.remove('hidden');
+    }
   };
 }
