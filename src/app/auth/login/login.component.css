@@ -1,0 +1,11 @@
+.h-100vh {
+  height: 100vh;
+}
+
+.error{
+  color:rgb(170, 0, 0);
+}
+
+.hidden {
+  display: none;
+}

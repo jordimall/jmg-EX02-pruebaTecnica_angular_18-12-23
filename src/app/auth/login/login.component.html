@@ -1,1 +1,56 @@
-<p>login works!</p>
+<div class="container">
+  <div class="row h-100vh d-flex justify-content-center align-items-center">
+    <div class="col-6 border border-1 border-black">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label"
+            >Email address</label
+          >
+          <input
+            type="email"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="userNameHelp"
+            formControlName="userName"
+          />
+          @if (loginForm.get('userName')?.hasError('required')&&
+          loginForm.get('userName')?.touched) {
+          <span class="text-danger"
+            >Debes de introducir un nombre de usuario</span
+          >
+          }
+          <div id="userNameHelp" class="form-text">
+            El nombre de usuario es user
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="exampleInputPassword1"
+            aria-describedby="passwordHelp"
+            formControlName="password"
+          />
+          @if (loginForm.get('password')?.hasError('required')&&
+          loginForm.get('password')?.touched) {
+          <span class="text-danger">Debes de introducir una contraseña</span>
+          }
+          <div id="userNameHelp" class="form-text">La contraseña es user</div>
+        </div>
+        <div class="row mb-3">
+          <div id="errorLogin" class="col error hidden">
+            Error al introducir el nombre de ususario o la contraseña
+          </div>
+        </div>
+        <button
+          type="submit"
+          class="btn btn-primary mb-2"
+          [disabled]="!loginForm.valid"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
